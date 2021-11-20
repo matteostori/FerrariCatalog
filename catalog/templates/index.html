@@ -1,0 +1,11 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div class="col-md-5 p-lg-5 mx-auto my-auto">
+  <h1 class="display-4 fw-normal">Hi! I'm Leonardo</h1>
+  <h2 class="display-7 fw-normal">I'm 9 years old and passionate about cars &#127950;&#127950;&#127950;&#127937;</h2><br />
+  <p class="lead fw-normal">This is my first project to start learning to code! 
+  	Check out the <a class="link-secondary" href="{% url 'about' %}"><i>About me</i></a> section &#128512;</p>
+  <p class="lead fw-normal">I have a collection of <b>{{ num_cars }}</b> Ferrari models, and this website showcase them with description and technical details &#128521;</p>
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div class="col-md-5 p-lg-5 mx-auto my-auto">
+  {% load static %}
+  <h1>{{ pilot.name}}<img src="{% static 'img/helmet.png' %}" class="iconpng" /></h1>
+
+  <p>&#127937; <strong>First race:</strong> {{ pilot.firstrace}}</p>
+  <p>&#128213; <strong>Description:</strong> {{ pilot.description }}</p>
+
+  <p>&#127950; Which Ferrari did he drive?</p>
+  {% for c in pilot.car_set.all %}
+  	<div class="list-group">
+		<a href="{{ c.get_absolute_url }}" class="list-group-item list-group-item-action">{{ c.name }}</a><br />
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}

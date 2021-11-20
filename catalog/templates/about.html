@@ -1,0 +1,27 @@
+{% extends "base_generic.html" %}
+
+{% load static %}
+
+{% block about %}
+	<div class="container-fluid mx-auto my-auto">
+		<div class="card mx-auto my-auto">
+		  <div class="row">
+		    <div class="col-md-4 p-lg-3 mx-auto my-auto">
+	   	  		<img src="{% static 'img/leonardo_ferrari_museo.jpg' %}" class="rounded-circle img-fluid py-3" alt="Visiting Ferrari museum in 2020">
+		    </div>
+		    <div class="col-md-4 p-lg-3 mx-auto my-auto">
+		      <div class="card-body">
+		        <h5 class="card-title">Hi again, it's Leo!</h5>
+		        <p class="card-text">
+		        	I'm a primary school student from Italy. <br />
+		        	I like cars (but you already knew this &#128518;), travel (I visited Paris, London, Amsterdam, and of course many cities in Italy)
+		        	<br />
+		        	
+		        </p>
+		        <p class="card-text"><small class="text-muted">&#128072; Here I'm visiting <a href="https://www.ferrari.com/en-EN/museums/ferrari-maranello" target="_blank">Museo Ferrari</a> in 2020</small></p>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	</div>
+{% endblock %}

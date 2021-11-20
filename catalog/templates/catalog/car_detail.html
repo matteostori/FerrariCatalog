@@ -1,0 +1,26 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div class="col-md-5 p-lg-5 mx-auto my-auto">
+  {% load static %}
+  <h1>{{ car.name }} <img src="{% static 'img/car.png' %}" class="iconpng" /></h1>
+
+  <p><strong>&#128526; Pilot:</strong> <a href="{% url 'pilot-detail' car.pilot.id %}">{{ car.pilot }}</a></p>
+  <p><strong>&#127752; Color:</strong> {{ car.get_color_display }}</p>
+  <p><strong>&#128640; Max speed [km/h]:</strong> {{ car.maxspeed }}</p>
+  <p><strong>&#128052; Horse power:</strong> {{ car.hp}}</p>
+  <p><strong>&#128197; Year:</strong> {{ car.caryear }}</p>
+  <p><strong>&#9881; Cylinders #:</strong> {{ car.cylinders }}</p>
+  <p><strong>&#128213; Description:</strong> {{ car.description }}</p>
+  <br />
+  <p class="text-primary"><i>&#128444; Gallery with pictures arriving soon!</i></p>
+  
+  <!-- <div style="margin-left:20px;margin-top:20px">
+    <h4>Gallery:</h4>
+    {% for pic in car.carimage_set.all %}
+      <p>Description: {{ pic.description }}</p>
+      <p class="text-muted"><strong>Path:</strong> {{ pic.path }}</p>
+    {% endfor %}
+  </div> -->
+ </div>
+{% endblock %}

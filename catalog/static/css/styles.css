@@ -1,0 +1,53 @@
+.container {
+  max-width: 960px;
+}
+
+/*
+ * Custom translucent site header
+ */
+
+.site-header {
+  background-color: rgba(0, 0, 0, .85);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+}
+
+.divmiddle {
+	height: 80vh; 
+}
+
+.navbar-nav > li{
+  margin-left:100px;
+  margin-right:100px;
+}
+
+.bgimage {
+	opacity: 1;
+}
+
+.bgimage::before {
+    background-image: url('../img/ferrari_museo.jpg');
+	opacity: 0.1;
+	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+}
+
+.iconpng {
+	width: 75px;
+	height: 75px;
+}
+
+/*
+ * Extra utilities
+ */
+
+.flex-equal > * {
+  flex: 1;
+}
+@media (min-width: 768px) {
+  .flex-md-equal > * {
+    flex: 1;
+  }
+}

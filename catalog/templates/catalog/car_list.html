@@ -1,0 +1,32 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div class="col-md-5 p-lg-5 mx-auto my-auto">
+  <h1>Cars List</h1>
+  {% if car_list %}
+  <div class="list-group">
+    {% for car in car_list %}
+		<a href="{{ car.get_absolute_url }}" class="list-group-item list-group-item-action">{{ car.name }} <i>(pilot: {{car.pilot}})</i></a> 
+    {% endfor %}
+  </div>
+  {% else %}
+    <p>No cars listed yet!</p>
+  {% endif %}
+  
+   {% if is_paginated %}
+       <div class="pagination justify-content-center">
+           <span class="page-links">
+               {% if page_obj.has_previous %}
+                   <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">previous</a>
+               {% endif %}
+               <span class="page-current">
+                   Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+               </span>
+               {% if page_obj.has_next %}
+                   <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">next</a>
+               {% endif %}
+           </span>
+       </div>
+   {% endif %}
+ </div> 
+{% endblock %}
