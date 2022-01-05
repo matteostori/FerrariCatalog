@@ -10,5 +10,4 @@ urlpatterns = [
     path('car/<str:pk>', views.CarsDetailView.as_view(), name='car-detail'),
     path('pilots/', views.PilotListView.as_view(), name='pilots'),
     path('pilots/<str:pk>', views.PilotsDetailView.as_view(), name='pilot-detail'),
-
 ]

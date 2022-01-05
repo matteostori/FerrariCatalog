@@ -1,6 +1,10 @@
+from nt import listdir
+from os.path import join
+
 from django.shortcuts import render
-from django.urls.base import reverse
 from django.views import generic
+
+from FerrariCatalog.settings import BASE_DIR, STATIC_URL
 
 from .models import Car, Pilot
 
@@ -42,6 +46,21 @@ class CarsListView(generic.ListView):
 #detailed view of each car
 class CarsDetailView(generic.DetailView):
     model = Car
+    
+    def get_context_data(self, **kwargs):
+        context = super(CarsDetailView, self).get_context_data(**kwargs)
+        images_list = []
+        carimage_set = context['object'].carimage_set.all()
+        if len(carimage_set) > 0:
+            imagepath = carimage_set[0].path
+            imagepath_dir = join(BASE_DIR, 'catalog/') + STATIC_URL + '/img/' + imagepath
+            for f in listdir(imagepath_dir):
+                images_list.append('img/' + imagepath + '/' + f)
+             
+            context['image_list'] = images_list
+            
+        return context
+        
     
 #simple view for listing all pilots (paginated)
 class PilotListView(generic.ListView):

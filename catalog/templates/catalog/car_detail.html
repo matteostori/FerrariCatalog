@@ -1,7 +1,7 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-<div class="col-md-5 p-lg-5 mx-auto my-auto">
+<div class="col-md-6 p-lg-5 mx-auto my-auto">
   {% load static %}
   <h1>{{ car.name }} <img src="{% static 'img/car.png' %}" class="iconpng" /></h1>
 
@@ -13,14 +13,34 @@
   <p><strong>&#9881; Cylinders #:</strong> {{ car.cylinders }}</p>
   <p><strong>&#128213; Description:</strong> {{ car.description }}</p>
   <br />
-  <p class="text-primary"><i>&#128444; Gallery with pictures arriving soon!</i></p>
+</div>
   
-  <!-- <div style="margin-left:20px;margin-top:20px">
-    <h4>Gallery:</h4>
-    {% for pic in car.carimage_set.all %}
-      <p>Description: {{ pic.description }}</p>
-      <p class="text-muted"><strong>Path:</strong> {{ pic.path }}</p>
-    {% endfor %}
-  </div> -->
+<div class="col-md-6 p-lg-5 mx-auto my-auto">
+  	 {% if image_list %}
+	  <div id="mycarouselControls" class="carousel carousel-dark slide" data-bs-ride="carousel">
+		  <div class="carousel-inner">
+		    {% for pic in image_list %}
+				  {% if forloop.first %}      
+				    <div class="carousel-item active">
+			      {% else %}
+				    <div class="carousel-item">
+			      {% endif %}
+				      <img src="{% static pic %}" class="rounded" style="max-width:100%; max-height:400px">
+				    </div>
+	   		{% endfor %}
+		  </div>
+		  <button class="carousel-control-prev" type="button" data-bs-target="mycarouselControls" data-bs-slide="prev">
+		    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		    <span class="visually-hidden">Previous</span>
+		  </button>
+		  <button class="carousel-control-next" type="button" data-bs-target="mycarouselControls" data-bs-slide="next">
+		    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+		    <span class="visually-hidden">Next</span>
+		  </button>
+	 	</div>
+     {% else %}
+     	<p><strong>Gallery with images arriving soon!</strong></p>
+     {% endif %}
+ 
  </div>
 {% endblock %}
